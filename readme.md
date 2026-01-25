@@ -1,4 +1,4 @@
-#  Snart Logistics
+#  Smart Logistics
 
 [![Open In Kaggle](https://img.shields.io/badge/Kaggle-035a7d?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/code/trnchtng/notebook6d375cdcf5)
 
