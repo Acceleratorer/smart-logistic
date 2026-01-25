@@ -1,2 +1,31 @@
-# Điểm mạnh
-- 
+[PROJECT_METADATA]
+PROJECT_NAME = Snart Logistics
+DOC_TYPE = System Analysis & Roadmap
+VERSION = 1.0.0
+
+[SYSTEM_ANALYSIS_STRENGTHS]
+# Evaluation of the current Cross-functional Flowchart
+SWIMLANES = Defined (4 lanes: Carrier, Shop, Platform, Customer)
+FLOW_SYNC = Parallel processing of Physical Flow (Shipping) and Information Flow (Platform Updates)
+EXCEPTION_HANDLING = Implemented (Includes Delivery Failure -> Warehousing -> Return to Shop)
+PLATFORM_INTEGRATION = Realistic (Models API logic for Shopee/Lazada/TikTok Shop)
+FINANCIAL_LOGIC = Logic exists for both Pre-paid and COD (Cash on Delivery)
+
+[LOGIC_GAPS_&_ROADMAP]
+# Critical business logic missing from the current design
+MISSING_FEATURE_1 = Retry Logic (Must implement a 3-attempt loop before initiating Return)
+MISSING_FEATURE_2 = Early Cancellation (Handling "Out of Stock" or "User Cancel" before packaging)
+MISSING_FEATURE_3 = Reverse Logistics (Post-delivery Return/Refund handling)
+
+[VISUAL_REFACTORING_TASKS]
+# To-do list for flowchart improvements
+TASK_1 = Standardize Decision Nodes (Use proper Diamonds with clear Yes/No paths)
+TASK_2 = Connector Cleanup (Adopt Manhattan/Orthogonal style; avoid line-crossing)
+
+[CODE_IMPLEMENTATION_SCOPE]
+# Mapping Python/Gradio code to the Flowchart
+CURRENT_SWIMLANE = Carrier (Top Lane)
+COVERED_PROCESSES = 
+    - Input Processing (Nhận thông tin)
+    - Routing Engine (OSRM Integration)
+    - Cost Calculation (Rule Cost)
