@@ -86,3 +86,4 @@ Chỉ số hiện có vẫn có giới hạn: mỗi kịch bản chủ yếu ch�
 - Đã gộp phần thuật toán của Chương 4 thành quy trình thực thi, giữ công thức và tham số ở Chương 3.
 - Đã thêm các mục `/exam`, `/logs`, `/evals` trong Chương 5 và template tương ứng trong repo.
 - Kiểm chứng: 41 trang PDF render từ Word, 431 đoạn, 18 bảng, một mục 5.3.1 và một bảng ma trận vấn đề.
+- Bản tiểu luận final: `tiểu luận ctuong smart_final.docx`, có gallery hình TN01–TN07 ở mục 5.2.6.
