@@ -1,0 +1,12 @@
+{
+  "checks": {
+    "robot_count": true,
+    "five_bays": true,
+    "astar_route": true,
+    "cpa_controller": true,
+    "swept_gap": true,
+    "single_fleet_controller": true,
+    "astar_wall_and_swept_gap": true
+  },
+  "node_output": "{\"astar_nodes\":19,\"blocked_move\":true,\"clearance_check\":true}"
+}

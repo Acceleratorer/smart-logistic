@@ -8,3 +8,11 @@ Report these metrics for every scenario and controller variant:
 - minimum sampled distance (`dmin`) and independently measured collisions.
 
 Keep implementation evidence separate from experimental evidence. A counter or guard in code proves that a mechanism exists; repeated controlled runs are required to claim that it improves performance or safety.
+
+
+Run the smoke gate with:
+
+```text
+python evals/run_merged_notebook_smoke.py
+python -m unittest tests/test_merged_notebook_contract.py
+```
