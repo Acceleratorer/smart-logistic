@@ -93,6 +93,8 @@ def main() -> int:
     astar = re.search(r"        function findPathAStar\(startPos, targetPos\) \{.*?\n        \}\n", html, re.DOTALL)
     if not astar:
         raise AssertionError("A* function body not found")
+    cpa = extract_between(html, "function f5PredictiveControl", "function f5WrapAngle")
+    heading = extract_between(html, "function f5HeadingVector", "function f5PredictiveControl")
     other_positions = extract_between(html, "function f5OtherPositions", "function f5Dist")
     allowed_move = extract_between(html, "function f5AllowedMove", "function f5Advance")
     smoke_js = f"""
@@ -111,7 +113,14 @@ if(!path.length||path.some(p=>p.x===2.25&&p.z<4.5))throw new Error('A* wall chec
 if(f5AllowedMove({{x:0,z:0}},{{x:1,z:0}},0))throw new Error('swept-gap failed to block');
 fleet5[1].mesh.position={{x:.5,z:2}};
 if(!f5AllowedMove({{x:0,z:0}},{{x:1,z:0}},0,0.4))throw new Error('clearance check failed');
-console.log(JSON.stringify({{astar_nodes:path.length,blocked_move:true,clearance_check:true}}));
+{heading}
+const MAX_SPEED=2.3, SENSOR_RANGE=4.8, SIDE_RANGE=1.8, BRAKE=2.7, CONFLICT_HORIZON=2.4;
+let cpaFleet=[{{id:0,mesh:{{position:{{x:0,z:0}},rotation:{{y:0}}}},speed:1,phase:'PICK',path:[],index:0}},{{id:1,mesh:{{position:{{x:1.5,z:1}},rotation:{{y:-Math.PI/2}}}},speed:1,phase:'PICK',path:[],index:0}}];
+fleet5=cpaFleet;
+{cpa}
+const cpaResult=f5PredictiveControl(cpaFleet[0],{{x:1,z:0}});
+if(cpaResult.reason!=='CPA_CONFLICT'||cpaResult.risk<1||cpaResult.limit>=MAX_SPEED)throw new Error('CPA convergence check failed: '+JSON.stringify(cpaResult));
+console.log(JSON.stringify({{astar_nodes:path.length,blocked_move:true,clearance_check:true,cpa_reason:cpaResult.reason,cpa_limit:cpaResult.limit}}));
 """
     node_output = run_node(smoke_js)
     checks["astar_wall_and_swept_gap"] = True

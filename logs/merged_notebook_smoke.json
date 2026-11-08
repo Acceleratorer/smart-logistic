@@ -8,5 +8,5 @@
     "single_fleet_controller": true,
     "astar_wall_and_swept_gap": true
   },
-  "node_output": "{\"astar_nodes\":19,\"blocked_move\":true,\"clearance_check\":true}"
+  "node_output": "{\"astar_nodes\":19,\"blocked_move\":true,\"clearance_check\":true,\"cpa_reason\":\"CPA_CONFLICT\",\"cpa_limit\":1.7586894108263607}"
 }
