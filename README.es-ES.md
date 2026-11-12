@@ -45,7 +45,7 @@ El código actual funciona como una **Prueba de Concepto (POC)** centrada en el 
 
 ####  Funcionalidades Principales y Aspectos Técnicos Destacados
 * **UI/UX Avanzada (Mapa Bidireccional):** Utiliza un puente JavaScript personalizado `postMessage` para capturar coordenadas desde el iframe de `Folium` e inyectarlas de nuevo en el backend de Python. Esto resuelve un gran punto de dolor en la UX relacionado con la entrada precisa de direcciones.
-* **Enrutamiento en el Mundo Real:** Integra **OSRM** para calcular distancias basadas en redes viales reales (distancia conduccible), con una alternativa defensiva a la distancia de Haversine para garantizar fiabilidad.
+* **Enrutamiento en el Mundo Real:** Integra **OSRM** para calcular distancias basadas en redes viales reales (distancia conducible), con una alternativa defensiva a la distancia de Haversine para garantizar fiabilidad.
 * **Motor de Costos Dinámico:** La función `rule_cost` modela con precisión los precios logísticos, teniendo en cuenta:
     * Métricas de volumen ($L \times W \times H$)
     * Tipos de carga (Frágil, Cadena de frío, Alto valor)
